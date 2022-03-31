@@ -1,14 +1,15 @@
 import { useContext, useEffect } from "react";
-import { RecipeContext } from "../Contexts/RecipeContext";
+import { RecipeContext } from "../contexts/RecipeContext";
 import axios from "axios";
 import Recipe from "../components/Recipe";
 
 function Popular() {
 	const { recipes, setRecipes } = useContext(RecipeContext);
+
 	useEffect(() => {
 		axios.get(`https://api.spoonacular.com/recipes/random?number=16&tags=vegetarian&apiKey=${process.env.REACT_APP_API_KEY}`)
 		.then(res => setRecipes(res.data.recipes))
-	}, [])
+	}, [setRecipes])
 	
 	return (
 		<div>

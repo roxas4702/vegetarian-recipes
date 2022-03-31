@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RecipeContext } from "./Contexts/RecipeContext";
+import { RecipeContext } from "./contexts/RecipeContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Popular from "./pages/Popular";
