@@ -15,8 +15,8 @@ function App() {
 				<div className="content">
 					<Switch>
 						<RecipeContext.Provider value ={{ recipes, setRecipes }}>
-							<Route exact path='/'> <Popular /> </Route>
-							<Route path='/searched/:search'> <SearchedRecipes /> </Route>
+							<Route exact path='/' component={Popular } />
+							<Route path='/searched/:search' component={SearchedRecipes} />
 						</RecipeContext.Provider>
 					</Switch>
 				</div>

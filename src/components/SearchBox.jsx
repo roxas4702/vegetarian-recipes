@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import SearchBoxCSS from "./SearchBox.module.css"
 
 function SearchBox() {
     const [input, setInput] = useState('');
@@ -13,14 +14,14 @@ function SearchBox() {
     }
 
     return (
-        <div className="search-box">
-            <FontAwesomeIcon icon={faSearch} className='fa-search'/>
+        <div className={SearchBoxCSS.searchBox}>
+            <FontAwesomeIcon icon={faSearch} className={SearchBoxCSS.faSearch}/>
             <form onSubmit={submitHandler}>
                 <input 
                     onChange={(e) => setInput(e.target.value)}
                     type="text" 
                     value={input} 
-                    className="search-input" 
+                    className={SearchBoxCSS.searchInput}
                     placeholder="Search Recipe" 
                 />
             </form>

@@ -1,12 +1,14 @@
+import RecipeCSS from "./Recipe.module.css"
+
 function Recipe(props) {
     return (
-        <div className='recipe'>
+        <div className={RecipeCSS.recipe}>
             <a href={props.recipe.spoonacularSourceUrl} target="_blank" rel="noreferrer">
                 <img src={props.recipe.image} alt={props.recipe.title}/>
             </a>
-            <div className="recipe-text">
-                <span className="recipe-title">{props.recipe.title}</span>
-                <span className="recipe-time"><span className="clock-emoji">🕓</span> {props.recipe.readyInMinutes} min.</span>
+            <div className={RecipeCSS.recipeText}>
+                <span>{props.recipe.title}</span>
+                <span><span className={RecipeCSS.clockEmoji}>🕓</span> {props.recipe.readyInMinutes} min.</span>
             </div>
         </div>
     );
