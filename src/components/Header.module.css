@@ -6,4 +6,13 @@
     background-color: #00843c;
     color: #fff;
     box-shadow: 0 0 8px 0 #000000;
+    font-size: clamp(12px, 2vw, 16px);
+
+}
+
+@media only screen and (max-width: 500px){
+    .header {
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
 }
