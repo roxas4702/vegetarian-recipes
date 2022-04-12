@@ -1,14 +1,17 @@
-import RecipeCSS from "./Recipe.module.css"
+import styles from "./Recipe.module.scss"
+import { Link } from "react-router-dom"
 
 function Recipe(props) {
+    const { image, title, id, readyInMinutes } = props.recipe
+
     return (
-        <div className={RecipeCSS.recipe}>
-            <img src={props.recipe.image} alt=""/>
-            <div className={RecipeCSS.recipeText}>
-                <span>{props.recipe.title}</span>
-                <a href={props.recipe.spoonacularSourceUrl} className={RecipeCSS.recipeLink} target="_blank" rel="noreferrer">
-                    Full Recipe (🕓 {props.recipe.readyInMinutes} min.)
-                </a>
+        <div className={styles.recipe}>
+            <img src={image} alt="" />
+            <div className={styles.text}>
+                <span>{title}</span>
+                <Link className={styles.button} to={{ pathname:`/recipe/${id}`, state: props }} >
+                    Full Recipe (🕓 {readyInMinutes} min.)
+                </Link>
             </div>
         </div>
     );

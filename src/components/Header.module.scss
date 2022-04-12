@@ -9,11 +9,11 @@
     box-shadow: 0 0 8px 0 #000000;
     font-size: clamp(14px, 2vw, 16px);
 
+    a {
+        color: #fff;
+    }
 }
 
-.header a {
-    color: #fff;
-}
 
 @media only screen and (max-width: 520px){
     .header {

@@ -3,6 +3,7 @@ import { RecipeContext } from "./contexts/RecipeContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Popular from "./pages/Popular";
+import RecipePage from "./pages/RecipePage";
 import SearchedRecipes from "./pages/SearchedRecipes";
 
 function App() {
@@ -12,10 +13,11 @@ function App() {
 		<BrowserRouter>
 			<div className='App'>
 				<Header />
-				<div className="content">
+				<div>
 					<Switch>
 						<RecipeContext.Provider value ={{ recipes, setRecipes }}>
-							<Route exact path='/' component={Popular } />
+							<Route exact path='/' component={Popular} />
+							<Route exact path='/recipe/:id' component={RecipePage} />							
 							<Route path='/searched/:search' component={SearchedRecipes} />
 						</RecipeContext.Provider>
 					</Switch>

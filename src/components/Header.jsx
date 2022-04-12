@@ -1,10 +1,10 @@
-import SearchBox from "./SearchBox";
+import styles from "./Header.module.scss"
 import { Link } from "react-router-dom";
-import HeaderCSS from "./Header.module.css"
+import SearchBox from "./SearchBox";
 
 function Header() {
     return (
-        <div className={HeaderCSS.header}>
+        <div className={styles.header}>
             <Link to='/'><h1>🥗 Vegetarian Recipes</h1></Link>
             <SearchBox />
         </div>

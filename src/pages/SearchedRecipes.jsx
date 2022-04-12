@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 import { RecipeContext } from "../contexts/RecipeContext";
-import axios from "axios";
-import Recipe from "../components/Recipe";
 import { useParams } from 'react-router-dom';
+import { getSearched } from "../components/ApiClient";
+import Recipe from "../components/Recipe";
 
 function SearchedRecipes() {
     const { recipes, setRecipes } = useContext(RecipeContext);
@@ -10,16 +10,12 @@ function SearchedRecipes() {
     let params = useParams();
 
     useEffect(() => {
-        const getRecipes = (name) => {
-            axios.get(`https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&number=100&diet=vegetarian&query=${name}&apiKey=${process.env.REACT_APP_API_KEY}`)
-            .then(res => setRecipes(res.data.results));
-        };
-
-        getRecipes(params.search);
+        const apiCall = getSearched(params.search);
+		apiCall.then(res => setRecipes(res.data.results))
     }, [params.search, setRecipes])
      
     return (
-        <div>
+        <div className="content">
             <h2>Enjoy your meal!</h2>
             <div className="recipes-container">
 				{recipes.map((recipe) => <Recipe recipe={recipe} key={recipe.id} />)}
