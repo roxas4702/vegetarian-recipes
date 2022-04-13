@@ -6,9 +6,9 @@ function Recipe(props) {
 
     return (
         <div className={styles.recipe}>
-            <img src={image} alt="" />
+            <img src={image} alt="https://spoonacular.com/recipeImages/157102-312x231.jpg" />
             <div className={styles.text}>
-                <span>{title}</span>
+                <span className={styles.title}>{title}</span>
                 <Link className={styles.button} to={{ pathname:`/recipe/${id}`, state: props }} >
                     Full Recipe (🕓 {readyInMinutes} min.)
                 </Link>
